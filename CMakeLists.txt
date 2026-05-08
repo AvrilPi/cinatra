@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.15)
 project(cinatra)
 
+add_compile_definitions(
+    ASIO_HAS_IO_URING
+    ASIO_DISABLE_EPOLL
+)
+
 include_directories(include)
 
 #the thread library of the system.

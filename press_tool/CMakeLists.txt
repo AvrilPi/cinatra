@@ -24,6 +24,9 @@ if (ENABLE_GZIP)
 	target_link_libraries(${project_name} ${ZLIB_LIBRARIES})
 endif()
 
+find_library(LIBURING_LIBRARY NAMES uring liburing)
+target_link_libraries(${project_name} ${LIBURING_LIBRARY})
+
 if (ENABLE_BROTLI)
 	include_directories(${BROTLI_INCLUDE_DIRS})
 	target_link_libraries(${project_name} ${BROTLI_LIBRARIES})

@@ -68,5 +68,9 @@ elseif (ENABLE_SIMD STREQUAL "AVX2")
 	endif ()
 endif ()
 
+find_library(LIBURING_LIBRARY NAMES uring liburing)
+
+target_link_libraries(${project_name} ${LIBURING_LIBRARY})
+target_link_libraries(benchmark ${LIBURING_LIBRARY})
 
 install(TARGETS ${project_name} DESTINATION include)
